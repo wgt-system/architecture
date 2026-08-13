@@ -20,6 +20,8 @@ Before changing a system-facing statement:
 
 This repository is authoritative for system-level ownership and policy. Service repositories remain authoritative for their domain semantics, exact Published Contract schemas, internal architecture, and service-specific release/readiness state.
 
+Within this repository, `ARCHITECTURE_PRINCIPLES.md` is authoritative for durable system-wide principles. `CAPABILITY_CATALOG.md` records accepted generic capability ownership, `INTEGRATION_POLICY.md` defines concrete cross-context rules, and `SYSTEM_CONTEXT.md` plus `SERVICE_CATALOG.md` record context relationships and design-time service facts. These documents complement rather than replace provider-owned specifications.
+
 ## Cross-project safety
 
 Normal write scope from this control plane is **only `wgt-system/architecture`**.
