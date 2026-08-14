@@ -26,3 +26,5 @@ Each bounded-context repository remains authoritative for its own domain semanti
 14. **Remote infrastructure is not domain authority by default.** A server or remote copy does not make remotely stored state authoritative or authorize readable remote persistence.
 15. **Architecture follows concrete scenarios.** Do not create speculative APIs, schemas, services, capabilities, or infrastructure for hypothetical future needs.
 16. **The architecture repository is design-time only.** It is the System Architecture Control Plane, not a fifth bounded context, runtime service, package, registry, configuration source, or application dependency.
+17. **Generic geospatial ownership is explicit.** Orientation owns generic Discover, Explore, Navigate, and Current Location capability; provider contexts retain foreign business semantics and WGT retains product/platform presentation.
+18. **Topology follows scenarios.** Orientation may use multiple languages/runtime artifacts and an external Valhalla engine in one bounded context; no separate map/routing/discovery repositories or mandatory microservice topology follows from the ownership decision.

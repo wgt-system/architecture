@@ -20,6 +20,10 @@ workspace {
             tags "Bounded Context" "Infrastructure"
         }
 
+        orientation = softwareSystem "Orientation" "Generic geospatial bounded context for Discover, Explore, Navigate, and Current Location representation." {
+            tags "Bounded Context" "Geospatial"
+        }
+
         vocationToWgt = vocation -> wgt "Publishes provider-owned job-market capabilities to" {
             properties {
                 "structurizr.inspection.model.relationship.technology" "info"
@@ -35,6 +39,16 @@ workspace {
                 "structurizr.inspection.model.relationship.technology" "info"
             }
         }
+        orientationToWgt = orientation -> wgt "Provides generic geospatial capability for composition and presentation" {
+            properties {
+                "structurizr.inspection.model.relationship.technology" "info"
+            }
+        }
+        vocationToOrientation = vocation -> orientation "Consumes generic geospatial results when interpreting provider-owned data" {
+            properties {
+                "structurizr.inspection.model.relationship.technology" "info"
+            }
+        }
     }
 
     views {
@@ -43,6 +57,7 @@ workspace {
             include vocation
             include illumination
             include conveyance
+            include orientation
             autolayout lr 220 120
             default
             title "We Got This! — System Landscape"
@@ -75,6 +90,10 @@ workspace {
 
             element "Infrastructure" {
                 background #5A526F
+            }
+
+            element "Geospatial" {
+                background #2F6F5E
             }
 
             relationship "Relationship" {

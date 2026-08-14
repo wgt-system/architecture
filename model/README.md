@@ -13,7 +13,7 @@ automatically correspond to a process, network service, or deployment.
 
 ## Current views
 
-- `SystemLandscape` — the accepted four-context system landscape and its three major system-facing relationships.
+- `SystemLandscape` — the accepted five-context system landscape and its major system-facing relationships.
 - Detailed service-internal architecture remains in the respective service repositories.
 
 ### Normative/system model

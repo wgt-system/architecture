@@ -99,6 +99,18 @@ Illumination intentionally has **no frozen speculative cross-device synchronizat
 
 Production security must not be described as complete until Conveyance records a full passing interoperability gate. The current real-iPhone proof remains the owning repository's gate.
 
+## Orientation
+
+**Purpose:** generic geospatial bounded context for Discover, Explore, Navigate, and Current Location representation.
+
+**Owns:** generic spatial geometry/features/layers and scenes; map renderer lifecycle; basemap/tile/style provider integration; clustering, selection and hit testing; place/POI discovery; geocoding and reverse geocoding; routing, route geometry, distance/duration and directions; generic current-position/accuracy handling; and provider adapters, technical caching, performance and failure behavior.
+
+**Does not own:** Vocation Work Location/Precision or job-market semantics; Illumination semantics; WGT product shell, navigation, device permission/trust or platform presentation; Conveyance durable delivery; or foreign authoritative persistence.
+
+**Major relationships:** a provider context may consume Orientation when interpreting a generic result; WGT may compose provider-owned spatial data with Orientation for presentation. Rich provider-owned spatial projections and external resources do not transfer their business meaning to Orientation.
+
+Orientation is one bounded context and repository that may contain multiple runtime artifacts/languages. Valhalla remains an external upstream C++ routing engine behind an Orientation adapter; no separate Cartography, Routing, Discovery, or mandatory remote Orientation service is implied.
+
 ## Boundary invariant for future contexts
 
 Adding a new bounded context must **not** require modifying Conveyance merely so Conveyance can understand that context's business objects.

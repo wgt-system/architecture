@@ -49,3 +49,13 @@ Detailed domain rules, exact schemas, implementation decisions, and release trut
 - **System-facing capability:** Current Object delivery.
 - **Source links:** [Domain Vision](https://github.com/wgt-system/conveyance/blob/dev/docs/01_DOMAIN_VISION.md), [Context Map](https://github.com/wgt-system/conveyance/blob/dev/docs/06_CONTEXT_MAP.md), [Contracts](https://github.com/wgt-system/conveyance/blob/dev/docs/08_CONTRACTS.md), [Architecture](https://github.com/wgt-system/conveyance/blob/dev/docs/10_ARCHITECTURE.md), [Current Object ADR](https://github.com/wgt-system/conveyance/blob/dev/docs/adr/0003-channel-and-current-object-v1.md), [Security Interoperability Gate](https://github.com/wgt-system/conveyance/blob/dev/docs/adr/0007-crypto-and-mtls-interoperability-gate.md), [Security Interoperability Profile](https://github.com/wgt-system/conveyance/blob/dev/docs/15_SECURITY_INTEROP_PROFILE.md).
 - **Current maturity note:** Current Object/local-test baseline is available. Production security remains Conveyance-owned and gated; Go/Windows interoperability evidence is complete, while the real physical iPhone interoperability gate remains open. See Conveyance's current readiness documentation for exact evidence and status.
+
+## Orientation
+
+- **Canonical name:** Orientation
+- **Repository:** <https://github.com/wgt-system/orientation>
+- **Role:** generic geospatial bounded context.
+- **Primary ownership:** Discover, Explore, Navigate, and generic Current Location representation, including spatial scenes/features/layers, map rendering lifecycle, basemap/provider integration, clustering/selection, place discovery, geocoding, reverse geocoding, routing, and route geometry/directions.
+- **Does not own:** Vocation Work Location/Precision or job-market semantics, Illumination learning semantics, WGT shell/device permissions/presentation, Conveyance delivery, or foreign authoritative persistence.
+- **Relationship:** providers may consume generic Orientation results for their own interpretation; WGT may compose provider-owned spatial data with Orientation for product presentation. Rich provider-owned spatial projections and external resources are allowed.
+- **Runtime/repository note:** one bounded context may contain Java/Maven backend, TypeScript/MapLibre map surface, and external Valhalla integration; this does not mandate one process or a remote microservice.

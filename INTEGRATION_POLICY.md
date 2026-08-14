@@ -23,6 +23,9 @@ These are binding system-level integration policies for accepted and future `wgt
 15. **Cross-device replication, upload, or caching of foreign data requires explicit semantics from the owning bounded context.** Technical feasibility is not authorization.
 16. **Published Contracts should remain transport-independent unless transport semantics are genuinely part of the provider contract.** HTTP, IPC, files, or Conveyance are adapters/topology unless the contract explicitly says otherwise.
 17. **Do not create speculative APIs or schemas merely to reserve future integration.** Concrete scenarios must justify semantics before contracts are frozen.
+18. **Orientation owns generic geospatial capability.** Consumers adapt provider-owned data into generic spatial scenes/results; Orientation does not acquire foreign business semantics or authoritative persistence.
+19. **Provider/WGT composition is explicit.** A provider may call Orientation and interpret the result; WGT may compose provider-owned data with Orientation for presentation. Rich spatial projections and external resources are permitted when the provider remains authoritative for their meaning.
+20. **Bounded context, repository, runtime artifact, and network service are distinct.** Orientation may contain Java/Maven, TypeScript/MapLibre, and external Valhalla integration without requiring separate repositories, microservices, or a remote Orientation service.
 
 ## Design-time Service Catalog vs runtime Service Registry
 

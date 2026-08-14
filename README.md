@@ -62,6 +62,7 @@ If this repository and a service repository appear to disagree, do not silently 
 - [Vocation](https://github.com/wgt-system/vocation) — local-first personal job market.
 - [Illumination](https://github.com/wgt-system/illumination) — local-first personal learning.
 - [Conveyance](https://github.com/wgt-system/conveyance) — generic synchronization/relay delivery.
+- [Orientation](https://github.com/wgt-system/orientation) — generic geospatial capability: Discover, Explore, Navigate, and Current Location representation.
 
 Each bounded context retains ownership of its business semantics and authoritative state. Integration does not transfer that ownership.
 
