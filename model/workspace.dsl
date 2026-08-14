@@ -35,35 +35,36 @@ workspace {
             include vocation
             include illumination
             include conveyance
-            autolayout lr
+            autolayout lr 220 120
+            default
             title "We Got This! — System Landscape"
             description "Accepted bounded contexts and their major system-facing relationships."
         }
 
         systemContext wgt WgtContext {
             include *?
-            autolayout lr
+            autolayout lr 220 120
             title "Wiiii Got This — System Context"
             description "WGT in relation to the accepted bounded contexts whose capabilities it integrates or whose generic delivery capability it uses."
         }
 
         systemContext vocation VocationContext {
             include *?
-            autolayout lr
+            autolayout lr 200 100
             title "Vocation — System Context"
             description "Vocation and its accepted system-facing relationship with Wiiii Got This."
         }
 
         systemContext illumination IlluminationContext {
             include *?
-            autolayout lr
+            autolayout lr 200 100
             title "Illumination — System Context"
             description "Illumination and its accepted system-facing relationship with Wiiii Got This."
         }
 
         systemContext conveyance ConveyanceContext {
             include *?
-            autolayout lr
+            autolayout lr 200 100
             title "Conveyance — System Context"
             description "Conveyance as the accepted generic durable opaque delivery capability used by Wiiii Got This when required."
         }
@@ -75,8 +76,13 @@ workspace {
         styles {
             element "Bounded Context" {
                 shape RoundedBox
+                width 360
+                height 200
                 color #FFFFFF
-                fontSize 24
+                stroke #263238
+                strokeWidth 2
+                fontSize 20
+                description false
             }
 
             element "Integration" {
@@ -94,7 +100,8 @@ workspace {
             relationship "Relationship" {
                 color #667085
                 thickness 2
-                fontSize 18
+                width 240
+                fontSize 16
             }
         }
     }
