@@ -10,54 +10,44 @@ their meaning.
 
 <div class="portal-cards" markdown>
 
-<div class="portal-card" markdown>
+<a class="portal-card" href="bounded-contexts/wgt/" markdown>
 
 ### Wiiii Got This
 
 Cross-platform integration and presentation of independently owned capabilities.
 
-[Open WGT detail](bounded-contexts/wgt.md)
+</a>
 
-</div>
-
-<div class="portal-card" markdown>
+<a class="portal-card" href="authority/services/#vocation" markdown>
 
 ### Vocation
 
 Local-first personal job-market bounded context.
 
-[Open Service Catalog](authority/services.md#vocation)
+</a>
 
-</div>
-
-<div class="portal-card" markdown>
+<a class="portal-card" href="authority/services/#illumination" markdown>
 
 ### Illumination
 
 Local-first personal-learning bounded context.
 
-[Open Service Catalog](authority/services.md#illumination)
+</a>
 
-</div>
-
-<div class="portal-card" markdown>
+<a class="portal-card" href="authority/services/#conveyance" markdown>
 
 ### Conveyance
 
 Generic durable opaque cross-device delivery.
 
-[Open Service Catalog](authority/services.md#conveyance)
+</a>
 
-</div>
-
-<div class="portal-card" markdown>
+<a class="portal-card" href="authority/services/#orientation" markdown>
 
 ### Orientation
 
 Generic geospatial capability for Discover, Explore, Navigate, and Current Location.
 
-[Open Service Catalog](authority/services.md#orientation)
-
-</div>
+</a>
 
 </div>

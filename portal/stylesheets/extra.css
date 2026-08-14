@@ -16,10 +16,26 @@
 .portal-card {
   border: 1px solid var(--md-default-fg-color--lightest);
   border-radius: 0.6rem;
+  color: inherit;
+  cursor: pointer;
+  display: block;
   padding: 1.1rem 1.2rem;
+  text-decoration: none;
+  transition: border-color 120ms ease, box-shadow 120ms ease, transform 120ms ease;
 }
 
 .portal-card h3 { margin-top: 0; }
+
+.portal-card:hover {
+  border-color: var(--md-primary-fg-color);
+  box-shadow: 0 0.25rem 0.8rem rgb(0 0 0 / 10%);
+  transform: translateY(-1px);
+}
+
+.portal-card:focus-visible {
+  outline: 3px solid var(--md-accent-fg-color);
+  outline-offset: 3px;
+}
 
 .structurizr-frame {
   margin: 1.5rem 0 2rem;

@@ -53,11 +53,13 @@ this directory:
 ```powershell
 docker run --rm -v "P:\wgt-system\architecture\model:/usr/local/structurizr" structurizr/structurizr validate -w workspace.dsl
 docker run --rm -v "P:\wgt-system\architecture\model:/usr/local/structurizr" structurizr/structurizr inspect -w workspace.dsl
-docker run --rm -d --name wgt-architecture-structurizr -p 127.0.0.1:18080:8080 -v "P:\wgt-system\architecture\model:/usr/local/structurizr" structurizr/structurizr local
+docker run --rm -d --name wgt-architecture-structurizr -p 127.0.0.1:18081:8080 -v "P:\wgt-system\architecture\model:/usr/local/structurizr" structurizr/structurizr local
 ```
 
 The Architecture Portal is the primary human-facing hub. Its Zensical site embeds the
 Structurizr Static export as model visualization; Structurizr is not the portal shell.
+Port `18080` is reserved for the Architecture Portal; port `18081` is the optional raw
+Structurizr local authoring viewer.
 Docker and Structurizr are not runtime dependencies of the WGT system. The host binding
 is intentionally local-only; the service is not exposed on `0.0.0.0`.
 
