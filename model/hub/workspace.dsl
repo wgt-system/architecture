@@ -1,6 +1,7 @@
 workspace extends https://raw.githubusercontent.com/wgt-system/architecture/dev/model/workspace.dsl {
     properties {
         "structurizr.introduction" "false"
+        "structurizr.inspection.workspace.scope" "info"
     }
 
     model {
@@ -19,6 +20,18 @@ workspace extends https://raw.githubusercontent.com/wgt-system/architecture/dev/
         }
 
         !relationship wgtToConveyance {
+            properties {
+                "structurizr.inspection.model.relationship.technology" "info"
+            }
+        }
+
+        !relationship orientationToWgt {
+            properties {
+                "structurizr.inspection.model.relationship.technology" "info"
+            }
+        }
+
+        !relationship vocationToOrientation {
             properties {
                 "structurizr.inspection.model.relationship.technology" "info"
             }
