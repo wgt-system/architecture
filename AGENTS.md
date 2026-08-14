@@ -63,3 +63,12 @@ Do not introduce release tags merely to version documentation.
 ## Runtime dependency prohibition
 
 No application or service runtime may depend on this repository as a package, configuration service, registry, or runtime source of truth.
+
+## Control-Plane / Worker Workflow
+
+- Canonical local path: `P:\wgt-system\architecture`.
+- `main` is stable accepted system architecture; `dev` is active architecture work.
+- Persistent worker chats are named `Docs #N`; they are execution contexts, not Architecture Authority.
+- Workers do not create Architecture Decisions, Issues, Milestones, or scope expansions unless the Control-Plane prompt explicitly requires it.
+- GitHub Issues are durable concrete work packages; Milestones group coherent Architecture/tooling initiatives and need not represent semantic-version releases. Do not invent due dates; scope, ordering, and parallelization belong to the Control Plane.
+- New worker prompts use `P:\wgt-system\architecture`. Never casually delete or move alternate checkouts; before cleanup, inspect worktree registration, branch, HEAD, remote, dirty state, and unpushed commits.
