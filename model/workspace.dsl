@@ -40,6 +40,10 @@ workspace {
             description "Accepted bounded contexts and their major system-facing relationships."
         }
 
+        terminology {
+            softwareSystem "Bounded Context"
+        }
+
         styles {
             element "Bounded Context" {
                 shape RoundedBox
