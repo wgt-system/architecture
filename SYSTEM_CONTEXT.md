@@ -34,6 +34,7 @@ interaction uses a network service or Conveyance.
 - Illumination learning semantics;
 - foreign authoritative data or databases;
 - foreign domain classes;
+- Orientation's generic geospatial semantics;
 - generic durable relay merely because several applications need it.
 
 **Major relationship:** consumes explicit provider-owned contracts through adapters and provides WGT-owned platform/device integration and presentation.
@@ -44,7 +45,7 @@ interaction uses a network service or Conveyance.
 
 **Owns:** opportunities, postings, companies, research observations, assessments, decisions, groups/waves, application cases, private application-material metadata, Vocation-specific publication semantics, and other job-market concepts defined by Vocation.
 
-**Does not own:** WGT device/platform presentation or generic Conveyance transport/trust persistence.
+**Does not own:** WGT device/platform presentation, Orientation generic geospatial semantics, or generic Conveyance transport/trust persistence.
 
 **Current system-facing contracts:**
 
@@ -67,6 +68,11 @@ Vocation
 ```
 
 This flow is a concrete Vocation read pattern, not a universal synchronization rule for every domain.
+
+Vocation may consume Orientation's generic geospatial capabilities, including geocoding or
+spatial presentation, when required by a concrete scenario. Vocation remains authoritative for
+Work Location/Precision and all job-market semantics; this relationship does not make generic
+map, geocoding, or routing capability Vocation-owned.
 
 ## Illumination
 
