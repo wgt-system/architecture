@@ -83,6 +83,7 @@ The Service Catalog is design-time architecture documentation. It must not be tr
 
 - [System Architecture Principles](ARCHITECTURE_PRINCIPLES.md)
 - [System Context](SYSTEM_CONTEXT.md)
+- [Architecture Model](model/README.md)
 - [Capability Catalog](CAPABILITY_CATALOG.md)
 - [Service Catalog](SERVICE_CATALOG.md)
 - [Integration Policy](INTEGRATION_POLICY.md)

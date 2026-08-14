@@ -4,17 +4,15 @@
 
 This document is the concise system context map for accepted `wgt-system` bounded contexts. It records ownership and integration boundaries, not internal implementation design or deployment topology.
 
-## Context map
+## Visual architecture model
 
-```mermaid
-flowchart LR
-    V[Vocation\njob-market BC] -->|provider-owned Published Contracts| W[Wiiii Got This\nintegration/presentation BC]
-    I[Illumination\nlearning BC] -->|future explicit capabilities/contracts| W
-    W -->|opaque protected delivery when required| C[Conveyance\nsynchronization/relay BC]
-    C -->|opaque delivery| W
-```
+The maintained visual system landscape is defined in
+[`model/workspace.dsl`](model/workspace.dsl). It is a derived view of the normative
+architecture documented here and elsewhere in the Architecture Control Plane; this
+document remains authoritative for the textual system-context semantics.
 
-The arrows show major accepted integration relationships. They do not imply that every interaction uses a network service or Conveyance.
+The model shows major accepted integration relationships. It does not imply that every
+interaction uses a network service or Conveyance.
 
 ## Wiiii Got This
 

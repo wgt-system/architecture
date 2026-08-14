@@ -17,6 +17,10 @@ Before changing a system-facing statement:
 3. distinguish system-level ownership from service-internal semantics;
 4. record contradictions instead of silently reconciling them;
 5. prefer links plus concise stable facts over copying service specifications.
+6. treat `model/workspace.dsl` as a derived visualization of accepted system architecture,
+   not a normative source; if it conflicts with normative Architecture Control Plane
+   documentation or ADRs, treat the model as drift and do not infer a new architecture
+   decision from the diagram.
 
 This repository is authoritative for system-level ownership and policy. Service repositories remain authoritative for their domain semantics, exact Published Contract schemas, internal architecture, and service-specific release/readiness state.
 
