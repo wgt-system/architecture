@@ -23,6 +23,18 @@ The context views are focused views of the same shared model; they introduce no 
 Architecture Authority. Detailed service-internal architecture remains in the respective
 service repositories.
 
+### Normative/system model
+
+[`model/workspace.dsl`](workspace.dsl) is the system-wide derived visualization. The
+system architecture source documents and ADRs remain authoritative.
+
+### Unified preview workspace
+
+[`model/hub/workspace.dsl`](hub/workspace.dsl) is a design-time navigation layer that
+aggregates service-owned zoom fragments without owning their internal semantics. It
+currently includes only the accepted WGT fragment; Vocation, Illumination, and
+Conveyance zooms will follow only after their own acceptance.
+
 ## Source-of-truth rule
 
 The normative system-wide sources remain:
