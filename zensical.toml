@@ -1,0 +1,37 @@
+[project]
+site_name = "We Got This! Architecture"
+docs_dir = "portal"
+site_dir = ".build/site"
+repo_url = "https://github.com/wgt-system/architecture"
+repo_name = "wgt-system/architecture"
+extra_css = ["stylesheets/extra.css"]
+
+nav = [
+  { "Architecture Hub" = "index.md" },
+  { "System Landscape" = "system-landscape.md" },
+  { "Bounded Contexts" = [
+      { "Wiiii Got This" = "bounded-contexts/wgt.md" },
+  ] },
+  { "Authority" = [
+      { "Principles" = "authority/principles.md" },
+      { "System Context" = "authority/system-context.md" },
+      { "Capabilities" = "authority/capabilities.md" },
+      { "Services" = "authority/services.md" },
+      { "Integration Policy" = "authority/integration-policy.md" },
+  ] },
+  { "Decisions" = [
+      { "Index" = "decisions/index.md" },
+      { "0001 — Repository" = "decisions/0001.md" },
+      { "0002 — Ownership" = "decisions/0002.md" },
+      { "0003 — Orientation" = "decisions/0003.md" },
+  ] },
+]
+
+[project.theme]
+features = ["navigation.sections", "navigation.top", "navigation.path", "content.code.copy"]
+
+[project.markdown_extensions.attr_list]
+[project.markdown_extensions.md_in_html]
+[project.markdown_extensions.pymdownx.snippets]
+base_path = ["."]
+check_paths = true

@@ -56,13 +56,13 @@ docker run --rm -v "P:\wgt-system\architecture\model:/usr/local/structurizr" str
 docker run --rm -d --name wgt-architecture-structurizr -p 127.0.0.1:18080:8080 -v "P:\wgt-system\architecture\model:/usr/local/structurizr" structurizr/structurizr local
 ```
 
-`local` provides only local design-time visualization. Docker and Structurizr are not
-runtime dependencies of the WGT system. The host binding is intentionally local-only;
-the service is not exposed on `0.0.0.0`.
+The Architecture Portal is the primary human-facing hub. Its Zensical site embeds the
+Structurizr Static export as model visualization; Structurizr is not the portal shell.
+Docker and Structurizr are not runtime dependencies of the WGT system. The host binding
+is intentionally local-only; the service is not exposed on `0.0.0.0`.
 
 Structurizr may create a `workspace.json` while running locally. It may contain layout
 information and should be versioned only when deliberate manual layout is being retained;
 incidental generated output is not part of this initial model.
 
-CI validation and a static portal are separate follow-up work packages and are not defined
-here.
+The generated portal and Structurizr export live under `.build/` and are not versioned.

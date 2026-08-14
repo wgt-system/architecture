@@ -93,6 +93,13 @@ The Service Catalog is design-time architecture documentation. It must not be tr
 - [System ADRs](adr/README.md)
 - [Reusable AGENTS section](templates/AGENTS_SYSTEM_ARCHITECTURE_SECTION.md)
 
+## Architecture Portal
+
+Zensical is the human-facing Architecture Hub; Structurizr remains the C4 model and
+diagram renderer embedded by the portal. The local portal preview is available at
+<http://localhost:18080>. The `.build/` directory contains generated site and export
+artifacts and is not versioned.
+
 ## Branch model
 
 - `main` — accepted stable system architecture.
