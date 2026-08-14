@@ -14,14 +14,7 @@ automatically correspond to a process, network service, or deployment.
 ## Current views
 
 - `SystemLandscape` — the accepted four-context system landscape and its three major system-facing relationships.
-- `WgtContext` — Wiiii Got This with the accepted bounded contexts it integrates or uses for delivery.
-- `VocationContext` — Vocation and its accepted relationship with Wiiii Got This.
-- `IlluminationContext` — Illumination and its accepted relationship with Wiiii Got This.
-- `ConveyanceContext` — Conveyance and its accepted relationship with Wiiii Got This.
-
-The context views are focused views of the same shared model; they introduce no additional
-Architecture Authority. Detailed service-internal architecture remains in the respective
-service repositories.
+- Detailed service-internal architecture remains in the respective service repositories.
 
 ### Normative/system model
 
@@ -32,8 +25,10 @@ system architecture source documents and ADRs remain authoritative.
 
 [`model/hub/workspace.dsl`](hub/workspace.dsl) is a design-time navigation layer that
 aggregates service-owned zoom fragments without owning their internal semantics. It
-currently includes only the accepted WGT fragment; Vocation, Illumination, and
-Conveyance zooms will follow only after their own acceptance.
+currently exposes `SystemLandscape` and the accepted WGT `WgtContainers` detail view.
+The Hub prefers direct Landscape-to-service-detail navigation; System Context Views are
+only introduced when they provide distinct architectural information. Vocation,
+Illumination, and Conveyance zooms will follow only after their own acceptance.
 
 ## Source-of-truth rule
 
