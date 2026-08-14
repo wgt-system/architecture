@@ -20,9 +20,21 @@ workspace {
             tags "Bounded Context" "Infrastructure"
         }
 
-        vocation -> wgt "Publishes provider-owned job-market capabilities to"
-        illumination -> wgt "Exposes Illumination-owned application/published boundaries to"
-        wgt -> conveyance "Uses for durable opaque cross-device delivery when required"
+        vocation -> wgt "Publishes provider-owned job-market capabilities to" {
+            properties {
+                "structurizr.inspection.model.relationship.technology" "info"
+            }
+        }
+        illumination -> wgt "Exposes Illumination-owned application/published boundaries to" {
+            properties {
+                "structurizr.inspection.model.relationship.technology" "info"
+            }
+        }
+        wgt -> conveyance "Uses for durable opaque cross-device delivery when required" {
+            properties {
+                "structurizr.inspection.model.relationship.technology" "info"
+            }
+        }
     }
 
     views {
