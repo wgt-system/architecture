@@ -40,6 +40,34 @@ workspace {
             description "Accepted bounded contexts and their major system-facing relationships."
         }
 
+        systemContext wgt WgtContext {
+            include *?
+            autolayout lr
+            title "Wiiii Got This — System Context"
+            description "WGT in relation to the accepted bounded contexts whose capabilities it integrates or whose generic delivery capability it uses."
+        }
+
+        systemContext vocation VocationContext {
+            include *?
+            autolayout lr
+            title "Vocation — System Context"
+            description "Vocation and its accepted system-facing relationship with Wiiii Got This."
+        }
+
+        systemContext illumination IlluminationContext {
+            include *?
+            autolayout lr
+            title "Illumination — System Context"
+            description "Illumination and its accepted system-facing relationship with Wiiii Got This."
+        }
+
+        systemContext conveyance ConveyanceContext {
+            include *?
+            autolayout lr
+            title "Conveyance — System Context"
+            description "Conveyance as the accepted generic durable opaque delivery capability used by Wiiii Got This when required."
+        }
+
         terminology {
             softwareSystem "Bounded Context"
         }

@@ -13,8 +13,15 @@ automatically correspond to a process, network service, or deployment.
 
 ## Current views
 
-- `SystemLandscape` — the accepted four-context system landscape and its three major
-  system-facing relationships.
+- `SystemLandscape` — the accepted four-context system landscape and its three major system-facing relationships.
+- `WgtContext` — Wiiii Got This with the accepted bounded contexts it integrates or uses for delivery.
+- `VocationContext` — Vocation and its accepted relationship with Wiiii Got This.
+- `IlluminationContext` — Illumination and its accepted relationship with Wiiii Got This.
+- `ConveyanceContext` — Conveyance and its accepted relationship with Wiiii Got This.
+
+The context views are focused views of the same shared model; they introduce no additional
+Architecture Authority. Detailed service-internal architecture remains in the respective
+service repositories.
 
 ## Source-of-truth rule
 
