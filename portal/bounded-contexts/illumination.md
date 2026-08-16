@@ -14,5 +14,11 @@ publication, command, authority, merge, conflict, and reconciliation semantics.
 <object class="architecture-diagram" type="image/svg+xml" data="../../assets/architecture/structurizr-IlluminationContext.svg" title="Illumination system context"></object>
 </div>
 
+## Runtime Structure
+
+<div class="architecture-diagram-container">
+<object class="architecture-diagram" type="image/svg+xml" data="../../assets/architecture/structurizr-IlluminationContainers.svg" title="Illumination containers"></object>
+</div>
+
 - [Illumination repository](https://github.com/wgt-system/illumination)
 - [Illumination in the Service Catalog](../../authority/services.md#illumination)

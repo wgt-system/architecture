@@ -62,54 +62,36 @@ workspace {
             default
             title "We Got This! — System Landscape"
             description "Accepted bounded contexts and their major system-facing relationships."
-            properties {
-                "c4plantuml.legend" "false"
-            }
         }
 
         systemContext wgt WgtContext {
             include *?
             autolayout tb 180 120
             title "Wiiii Got This — System Context"
-            properties {
-                "c4plantuml.legend" "false"
-            }
         }
 
         systemContext vocation VocationContext {
             include *?
             autolayout tb 180 120
             title "Vocation — System Context"
-            properties {
-                "c4plantuml.legend" "false"
-            }
         }
 
         systemContext illumination IlluminationContext {
             include *?
             autolayout tb 180 120
             title "Illumination — System Context"
-            properties {
-                "c4plantuml.legend" "false"
-            }
         }
 
         systemContext conveyance ConveyanceContext {
             include *?
             autolayout tb 180 120
             title "Conveyance — System Context"
-            properties {
-                "c4plantuml.legend" "false"
-            }
         }
 
         systemContext orientation OrientationContext {
             include *?
             autolayout tb 180 120
             title "Orientation — System Context"
-            properties {
-                "c4plantuml.legend" "false"
-            }
         }
 
         terminology {

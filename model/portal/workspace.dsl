@@ -19,9 +19,6 @@ workspace extends ../../model/hub/workspace.dsl {
 
     views {
         properties {
-            "c4plantuml.tags" "true"
-            "c4plantuml.legend" "false"
-            "plantuml.title" "false"
             "plantuml.skinparams" "nodesep=60,ranksep=80"
         }
     }

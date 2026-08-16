@@ -98,10 +98,11 @@ The Service Catalog is design-time architecture documentation. It must not be tr
 The human-facing Architecture Hub is built by Zensical. Its architecture views use
 the generated pipeline:
 
-`Structurizr DSL` → `C4-PlantUML export` → `PlantUML SVG` → `Zensical Portal`
+`Structurizr DSL` → `Structurizr PlantUML export` → `PlantUML SVG` → `Zensical Portal`
 
-Structurizr provides the C4 model, validation, and export; PlantUML renders the
-generated SVG; Zensical publishes the human-facing hub. The local portal preview is
+Structurizr remains the model and view source and produces the PlantUML diagram
+definition; PlantUML only renders that generated diagram; Zensical publishes the
+human-facing portal shell. There is no second topology or diagram source. The local portal preview is
 available at <http://localhost:18080>. Port `18081` is reserved for the optional raw
 Structurizr Local authoring viewer. The `.build/` directory contains generated site
 and diagram artifacts and is not versioned.
