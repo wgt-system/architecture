@@ -34,6 +34,19 @@ Other `wgt-system` repositories may be read to resolve system boundaries, but mu
 
 Do not create issues, milestones, labels, commits, metadata changes, branch changes, or documentation edits in another repository unless the user explicitly authorizes crossing that project boundary.
 
+## System-wide Git/GitHub execution policy
+
+This policy applies to agent and worker execution across the `wgt-system` repositories unless a repository has a stricter safety rule for a specific operation.
+
+- Use capabilities available in the current control-plane chat directly before delegating equivalent repository or GitHub work to a worker. Delegate only work the current chat cannot perform reliably, such as required local runtime/browser validation when no equivalent tool is available.
+- Do not assume the GitHub connector is read-only. Use supported connector write operations directly when they satisfy the task and repository safety rules.
+- An authentication or credential-helper failure observed inside an isolated execution environment such as `CodexSandboxOffline` is **not** evidence that the user's normal GitHub authentication is invalid.
+- For an explicitly authorized local Git push or `gh` operation, if the isolated environment cannot access the user's credentials, retry the exact authorized operation in the normal user environment using the existing authenticated user session when that environment is available.
+- Do **not** start `gh auth login`, a GitHub device flow, token regeneration, Windows Credential Manager changes, credential-helper replacement, or other authentication reconfiguration merely because an isolated sandbox cannot see existing credentials.
+- Treat authentication as a real blocker only after the applicable direct connector path and/or the authorized normal-user `git`/`gh` path has actually failed. Report the concrete failing path instead of speculating about credentials.
+- Do not spend repeated attempts diagnosing credential state once an authorized normal-user operation succeeds.
+- Do not copy this policy into ordinary worker prompts. Workers are expected to read the applicable `AGENTS.md`; prompts should contain only task-specific exceptions or overrides.
+
 ## Architecture rules
 
 - Check `CAPABILITY_CATALOG.md` before proposing generic cross-context infrastructure.
