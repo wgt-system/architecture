@@ -7,23 +7,27 @@ repo_name = "wgt-system/architecture"
 extra_css = ["stylesheets/extra.css"]
 
 nav = [
-  { "Architecture Hub" = "index.md" },
+  { "Overview" = "index.md" },
   { "System Landscape" = "system-landscape.md" },
   { "Bounded Contexts" = [
       { "Wiiii Got This" = "bounded-contexts/wgt.md" },
+      { "Vocation" = "bounded-contexts/vocation.md" },
+      { "Illumination" = "bounded-contexts/illumination.md" },
+      { "Conveyance" = "bounded-contexts/conveyance.md" },
+      { "Orientation" = "bounded-contexts/orientation.md" },
   ] },
-  { "Authority" = [
-      { "Principles" = "authority/principles.md" },
-      { "System Context" = "authority/system-context.md" },
-      { "Capabilities" = "authority/capabilities.md" },
-      { "Services" = "authority/services.md" },
-      { "Integration Policy" = "authority/integration-policy.md" },
-  ] },
+  { "Capabilities" = "authority/capabilities.md" },
+  { "Integration" = "authority/integration-policy.md" },
   { "Decisions" = [
       { "Index" = "decisions/index.md" },
-      { "0001 — Repository" = "decisions/0001.md" },
-      { "0002 — Ownership" = "decisions/0002.md" },
-      { "0003 — Orientation" = "decisions/0003.md" },
+      { "ADR-0001" = "decisions/0001.md" },
+      { "ADR-0002" = "decisions/0002.md" },
+      { "ADR-0003" = "decisions/0003.md" },
+  ] },
+  { "Reference" = [
+      { "Architecture Principles" = "authority/principles.md" },
+      { "System Context" = "authority/system-context.md" },
+      { "Service Catalog" = "authority/services.md" },
   ] },
 ]
 

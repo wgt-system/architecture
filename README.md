@@ -95,10 +95,21 @@ The Service Catalog is design-time architecture documentation. It must not be tr
 
 ## Architecture Portal
 
-Zensical is the human-facing Architecture Hub; Structurizr remains the C4 model and
-diagram renderer embedded by the portal. The local portal preview is available at
-<http://localhost:18080>. The `.build/` directory contains generated site and export
-artifacts and is not versioned.
+The human-facing Architecture Hub is built by Zensical. Its architecture views use
+the generated pipeline:
+
+`Structurizr DSL` → `C4-PlantUML export` → `PlantUML SVG` → `Zensical Portal`
+
+Structurizr provides the C4 model, validation, and export; PlantUML renders the
+generated SVG; Zensical publishes the human-facing hub. The local portal preview is
+available at <http://localhost:18080>. Port `18081` is reserved for the optional raw
+Structurizr Local authoring viewer. The `.build/` directory contains generated site
+and diagram artifacts and is not versioned.
+
+`PORTAL_BASE_URL` determines the target of generated diagram links. Use
+`http://localhost:18080` locally; GitHub Pages will later use
+`https://wgt-system.github.io/architecture`. The generated SVGs remain fully derived
+from the same Structurizr model.
 
 ## Branch model
 

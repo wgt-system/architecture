@@ -58,10 +58,58 @@ workspace {
             include illumination
             include conveyance
             include orientation
-            autolayout lr 220 120
+            autolayout tb 180 120
             default
             title "We Got This! — System Landscape"
             description "Accepted bounded contexts and their major system-facing relationships."
+            properties {
+                "c4plantuml.legend" "false"
+            }
+        }
+
+        systemContext wgt WgtContext {
+            include *?
+            autolayout tb 180 120
+            title "Wiiii Got This — System Context"
+            properties {
+                "c4plantuml.legend" "false"
+            }
+        }
+
+        systemContext vocation VocationContext {
+            include *?
+            autolayout tb 180 120
+            title "Vocation — System Context"
+            properties {
+                "c4plantuml.legend" "false"
+            }
+        }
+
+        systemContext illumination IlluminationContext {
+            include *?
+            autolayout tb 180 120
+            title "Illumination — System Context"
+            properties {
+                "c4plantuml.legend" "false"
+            }
+        }
+
+        systemContext conveyance ConveyanceContext {
+            include *?
+            autolayout tb 180 120
+            title "Conveyance — System Context"
+            properties {
+                "c4plantuml.legend" "false"
+            }
+        }
+
+        systemContext orientation OrientationContext {
+            include *?
+            autolayout tb 180 120
+            title "Orientation — System Context"
+            properties {
+                "c4plantuml.legend" "false"
+            }
         }
 
         terminology {
@@ -70,37 +118,22 @@ workspace {
 
         styles {
             element "Bounded Context" {
-                shape RoundedBox
+                shape Box
                 width 360
                 height 200
-                color #FFFFFF
-                stroke #263238
-                strokeWidth 2
+                background #F7F7F5
+                color #1F2933
+                stroke #4B5563
+                strokeWidth 1
                 fontSize 20
                 description false
             }
 
-            element "Integration" {
-                background #1F5A67
-            }
-
-            element "Domain" {
-                background #40566B
-            }
-
-            element "Infrastructure" {
-                background #5A526F
-            }
-
-            element "Geospatial" {
-                background #2F6F5E
-            }
-
             relationship "Relationship" {
-                color #667085
-                thickness 2
+                color #6B7280
+                thickness 1
                 width 240
-                fontSize 16
+                fontSize 15
             }
         }
     }

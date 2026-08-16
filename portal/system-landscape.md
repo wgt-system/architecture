@@ -1,14 +1,14 @@
+---
+hide:
+  - toc
+---
+
 # System Landscape
 
-The System Landscape is the derived C4 visualization of the accepted bounded
-contexts and their major system-facing relationships. The Architecture Control
-Plane documents remain authoritative; Structurizr is the renderer.
+The System Landscape is the generated C4 view of the accepted bounded contexts and
+their major system-facing relationships. Structurizr remains the model source;
+the portal publishes the generated SVG.
 
-<div class="structurizr-frame" markdown>
-<iframe src="../model/index.html?diagram=SystemLandscape&introduction=false" title="System Landscape" loading="lazy"></iframe>
+<div class="architecture-diagram-container">
+<object class="architecture-diagram architecture-diagram--fit" type="image/svg+xml" data="../assets/architecture/structurizr-SystemLandscape.svg" title="System Landscape"></object>
 </div>
-
-Continue with the bounded-context views:
-
-- [Wiiii Got This](bounded-contexts/wgt.md)
-- [Authority and service catalog](authority/services.md)

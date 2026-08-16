@@ -1,4 +1,4 @@
-workspace extends https://raw.githubusercontent.com/wgt-system/architecture/dev/model/workspace.dsl {
+workspace extends ../workspace.dsl {
     properties {
         "structurizr.introduction" "false"
         "structurizr.inspection.workspace.scope" "info"

@@ -14,7 +14,9 @@ automatically correspond to a process, network service, or deployment.
 ## Current views
 
 - `SystemLandscape` — the accepted five-context system landscape and its major system-facing relationships.
-- Detailed service-internal architecture remains in the respective service repositories.
+- `WgtContext`, `VocationContext`, `IlluminationContext`, `ConveyanceContext`, and `OrientationContext` — bounded-context system-context zooms.
+- `WgtContainers` — the accepted WGT runtime/container detail view.
+- Further service-internal architecture remains in the respective service repositories.
 
 ### Normative/system model
 
@@ -24,11 +26,9 @@ system architecture source documents and ADRs remain authoritative.
 ### Unified preview workspace
 
 [`model/hub/workspace.dsl`](hub/workspace.dsl) is a design-time navigation layer that
-aggregates service-owned zoom fragments without owning their internal semantics. It
-currently exposes `SystemLandscape` and the accepted WGT `WgtContainers` detail view.
-The Hub prefers direct Landscape-to-service-detail navigation; System Context Views are
-only introduced when they provide distinct architectural information. Vocation,
-Illumination, and Conveyance zooms will follow only after their own acceptance.
+aggregates service-owned zoom fragments without owning their internal semantics. The
+portal workspace exposes the five system-context zooms and the accepted WGT
+`WgtContainers` detail view. Service-internal architecture remains provider-owned.
 
 ## Source-of-truth rule
 
@@ -56,10 +56,19 @@ docker run --rm -v "P:\wgt-system\architecture\model:/usr/local/structurizr" str
 docker run --rm -d --name wgt-architecture-structurizr -p 127.0.0.1:18081:8080 -v "P:\wgt-system\architecture\model:/usr/local/structurizr" structurizr/structurizr local
 ```
 
-The Architecture Portal is the primary human-facing hub. Its Zensical site embeds the
-Structurizr Static export as model visualization; Structurizr is not the portal shell.
-Port `18080` is reserved for the Architecture Portal; port `18081` is the optional raw
-Structurizr local authoring viewer.
+The Architecture Portal is the primary human-facing hub. Its diagram pipeline is:
+
+`Structurizr DSL` → `C4-PlantUML export` → `PlantUML SVG` → `Zensical Portal`
+
+Structurizr provides the C4 model, validation, and export; PlantUML renders the
+generated SVG; Zensical is the human-facing Architecture Hub. The portal preview uses
+port `18080`. Port `18081` is the optional raw Structurizr Local authoring viewer.
+The generated artifacts live under `.build/` and are not versioned.
+
+`PORTAL_BASE_URL` determines the target of generated diagram links. Use
+`http://localhost:18080` locally; GitHub Pages will later use
+`https://wgt-system.github.io/architecture`. The generated SVGs remain fully derived
+from the same Structurizr model.
 Docker and Structurizr are not runtime dependencies of the WGT system. The host binding
 is intentionally local-only; the service is not exposed on `0.0.0.0`.
 
