@@ -6,6 +6,7 @@ workspace extends ../workspace.dsl {
 
     model {
         !include https://raw.githubusercontent.com/wgt-system/wiiii-got-this/dev/docs/model/model.dsl
+        !include https://raw.githubusercontent.com/wgt-system/vocation/dev/docs/model/model.dsl
 
         !relationship vocationToWgt {
             properties {
@@ -44,6 +45,7 @@ workspace extends ../workspace.dsl {
         }
 
         !include https://raw.githubusercontent.com/wgt-system/wiiii-got-this/dev/docs/model/views.dsl
+        !include https://raw.githubusercontent.com/wgt-system/vocation/dev/docs/model/views.dsl
     }
 
     configuration {

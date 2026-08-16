@@ -14,5 +14,11 @@ publication, and application semantics.
 <object class="architecture-diagram" type="image/svg+xml" data="../../assets/architecture/structurizr-VocationContext.svg" title="Vocation system context"></object>
 </div>
 
+## Runtime Structure
+
+<div class="architecture-diagram-container">
+<object class="architecture-diagram" type="image/svg+xml" data="../../assets/architecture/structurizr-VocationContainers.svg" title="Vocation containers"></object>
+</div>
+
 - [Vocation repository](https://github.com/wgt-system/vocation)
 - [Vocation in the Service Catalog](../../authority/services.md#vocation)
