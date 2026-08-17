@@ -48,7 +48,8 @@ Individual service repositories remain authoritative for:
 - their domain semantics and domain model;
 - aggregates, entities, value objects, and domain rules;
 - internal application architecture and persistence;
-- exact provider-owned Published Contract schemas and detailed API semantics;
+- exact provider-owned Published/Import Contract schemas and detailed API semantics;
+- domain-specific research/prompt/import workflows;
 - service-specific ADRs and implementation choices;
 - service-specific release and readiness state.
 
@@ -62,9 +63,11 @@ If this repository and a service repository appear to disagree, do not silently 
 - [Vocation](https://github.com/wgt-system/vocation) — local-first personal job market.
 - [Illumination](https://github.com/wgt-system/illumination) — local-first personal learning.
 - [Conveyance](https://github.com/wgt-system/conveyance) — generic synchronization/relay delivery.
-- [Orientation](https://github.com/wgt-system/orientation) — generic geospatial capability: Discover, Explore, Navigate, and Current Location representation.
+- [Orientation](https://github.com/wgt-system/orientation) — local-first personal spatial exploration and mobility; also the reusable generic geospatial capability owner for Discover, Explore, Navigate and Current Location.
 
 Each bounded context retains ownership of its business semantics and authoritative state. Integration does not transfer that ownership.
+
+Repeated mechanics such as prompt rendering, JSON exchange or UI controls do not automatically justify another bounded context. Domain-specific prompt/import semantics stay with the context whose data they create; see [ADR-0004](adr/0004-orientation-product-autonomy-and-prompt-ownership.md).
 
 ## How to use this repository
 

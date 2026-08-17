@@ -8,11 +8,11 @@ workspace {
             tags "Bounded Context" "Integration"
         }
 
-        vocation = softwareSystem "Vocation" "Local-first personal job-market bounded context and owner of job-market publication semantics." {
+        vocation = softwareSystem "Vocation" "Local-first personal job-market bounded context and owner of job-market research/publication semantics." {
             tags "Bounded Context" "Domain"
         }
 
-        illumination = softwareSystem "Illumination" "Local-first personal-learning bounded context and owner of learning semantics." {
+        illumination = softwareSystem "Illumination" "Local-first personal-learning bounded context and owner of learning/content-import semantics." {
             tags "Bounded Context" "Domain"
         }
 
@@ -20,8 +20,8 @@ workspace {
             tags "Bounded Context" "Infrastructure"
         }
 
-        orientation = softwareSystem "Orientation" "Generic geospatial bounded context for Discover, Explore, Navigate, and Current Location representation." {
-            tags "Bounded Context" "Geospatial"
+        orientation = softwareSystem "Orientation" "Local-first personal spatial exploration and mobility bounded context; also the reusable generic geospatial owner for Discover, Explore, Navigate and Current Location." {
+            tags "Bounded Context" "Geospatial" "Domain"
         }
 
         vocationToWgt = vocation -> wgt "Publishes provider-owned job-market capabilities to" {
@@ -39,12 +39,12 @@ workspace {
                 "structurizr.inspection.model.relationship.technology" "info"
             }
         }
-        orientationToWgt = orientation -> wgt "Provides generic geospatial capability for composition and presentation" {
+        orientationToWgt = orientation -> wgt "Exposes Orientation-owned capability for cross-platform composition and presentation" {
             properties {
                 "structurizr.inspection.model.relationship.technology" "info"
             }
         }
-        vocationToOrientation = vocation -> orientation "Consumes generic geospatial results when interpreting provider-owned data" {
+        vocationToOrientation = vocation -> orientation "Consumes generic geospatial/mobility results when interpreting provider-owned job data" {
             properties {
                 "structurizr.inspection.model.relationship.technology" "info"
             }
