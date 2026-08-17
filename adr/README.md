@@ -35,3 +35,4 @@ Initial records:
 - [ADR-0001 — System Architecture Repository](0001-system-architecture-repository.md)
 - [ADR-0002 — Cross-Context Integration and Capability Ownership](0002-cross-context-integration-and-capability-ownership.md)
 - [ADR-0003 — Orientation Geospatial Capability Ownership](0003-orientation-geospatial-capability-ownership.md)
+- [ADR-0004 — Orientation Product Autonomy and Domain-Owned Prompt/Import Semantics](0004-orientation-product-autonomy-and-prompt-ownership.md)
