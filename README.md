@@ -9,6 +9,7 @@ It records the architecture **above** individual bounded contexts: system-level 
 ## What this repository is
 
 - a concise map of accepted bounded contexts and their relationships;
+- the normative system-wide architecture principles;
 - a catalog of existing system capabilities and their owners;
 - the binding integration policy between bounded contexts;
 - the home for architecture decisions that are genuinely system-wide;
@@ -33,6 +34,7 @@ Runtime code must not depend on this repository.
 
 This repository is authoritative for:
 
+- system-wide architecture principles;
 - system-level bounded-context relationships;
 - cross-context ownership boundaries;
 - generic system capability ownership;
@@ -60,6 +62,7 @@ If this repository and a service repository appear to disagree, do not silently 
 - [Vocation](https://github.com/wgt-system/vocation) — local-first personal job market.
 - [Illumination](https://github.com/wgt-system/illumination) — local-first personal learning.
 - [Conveyance](https://github.com/wgt-system/conveyance) — generic synchronization/relay delivery.
+- [Orientation](https://github.com/wgt-system/orientation) — generic geospatial capability: Discover, Explore, Navigate, and Current Location representation.
 
 Each bounded context retains ownership of its business semantics and authoritative state. Integration does not transfer that ownership.
 
@@ -67,18 +70,21 @@ Each bounded context retains ownership of its business semantics and authoritati
 
 Before designing a new bounded context or cross-context feature:
 
-1. Read [SYSTEM_CONTEXT.md](SYSTEM_CONTEXT.md) to understand existing ownership boundaries.
-2. Check [CAPABILITY_CATALOG.md](CAPABILITY_CATALOG.md) before building generic infrastructure.
-3. Follow [INTEGRATION_POLICY.md](INTEGRATION_POLICY.md) for cross-context boundaries and the cross-device decision model.
-4. Use [NEW_SERVICE_CHECKLIST.md](NEW_SERVICE_CHECKLIST.md) when introducing a bounded context.
-5. Consult [SERVICE_CATALOG.md](SERVICE_CATALOG.md) for system-facing facts and provider source links.
-6. Add a system ADR under [`adr/`](adr/) only when the decision is genuinely system-wide.
+1. Read [ARCHITECTURE_PRINCIPLES.md](ARCHITECTURE_PRINCIPLES.md) for the durable system-wide rules.
+2. Read [SYSTEM_CONTEXT.md](SYSTEM_CONTEXT.md) to understand existing ownership boundaries.
+3. Check [CAPABILITY_CATALOG.md](CAPABILITY_CATALOG.md) before building generic infrastructure.
+4. Follow [INTEGRATION_POLICY.md](INTEGRATION_POLICY.md) for concrete cross-context boundaries and the cross-device decision model.
+5. Use [NEW_SERVICE_CHECKLIST.md](NEW_SERVICE_CHECKLIST.md) when introducing a bounded context.
+6. Consult [SERVICE_CATALOG.md](SERVICE_CATALOG.md) for system-facing facts and provider source links.
+7. Add a system ADR under [`adr/`](adr/) only when the decision is genuinely system-wide.
 
 The Service Catalog is design-time architecture documentation. It must not be treated as runtime discovery data.
 
 ## Repository documents
 
+- [System Architecture Principles](ARCHITECTURE_PRINCIPLES.md)
 - [System Context](SYSTEM_CONTEXT.md)
+- [Architecture Model](model/README.md)
 - [Capability Catalog](CAPABILITY_CATALOG.md)
 - [Service Catalog](SERVICE_CATALOG.md)
 - [Integration Policy](INTEGRATION_POLICY.md)

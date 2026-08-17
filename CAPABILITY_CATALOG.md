@@ -20,6 +20,7 @@ A capability being useful to several applications does **not** automatically mak
 | Learning review, assessment, repetition scheduling, and learning-state transitions | Domain capability | Illumination | Illumination-owned core domain semantics. |
 | Domain-specific merge, conflict, authority, and reconciliation semantics | Domain capability | Bounded context owning the affected domain | Never transferred to WGT or Conveyance merely because transport is shared. |
 | Personal device/platform integration and presentation semantics | Integration/platform | Wiiii Got This | WGT-owned; transport/server control must not silently become business-domain authority. |
+| Generic geospatial capability (discover, explore, navigate, current location) | Generic capability | Orientation | Accepted owner for generic spatial scenes/features, map rendering, provider integration, geocoding, routing, and current-location representation. Foreign business semantics remain provider-owned. |
 
 ## Conveyance decision guidance
 
@@ -56,7 +57,6 @@ This rule prevents the system from accumulating one synchronization stack per bo
 
 | Capability | Status | Guidance |
 | --- | --- | --- |
-| Shared Map composition across bounded contexts | Unresolved / hypothetical | Vocation owns its own Map Projection. A separate Shared Map owner is not accepted merely because multiple domains may eventually publish spatial contributions. |
 | Universal runtime Service Registry | Unresolved | WGT currently owns its own registration/discovery semantics. Do not create Consul/Kubernetes-style runtime registry requirements from this design-time catalog. |
 | Ordered/change-stream delivery | Not accepted as a current Conveyance mode | If a concrete domain requires it, raise a system architecture decision before implementing generic transport. |
 | Generic bidirectional synchronization semantics | Not accepted | Domain change/merge/reconciliation semantics cannot be genericized by default. Define domain semantics first, then evaluate transport. |
