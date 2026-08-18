@@ -1,6 +1,6 @@
 # ADR-0005: Provider-Owned Product Surfaces in Wiiii Got This
 
-- Status: Proposed
+- Status: Accepted
 - Date: 2026-08-18
 
 ## Context
@@ -15,15 +15,15 @@ Three concrete services now create this pressure:
 - **Illumination** is a local .NET capability runtime whose accepted architecture already identifies WGT as its primary Windows/iPhone end-user presentation while retaining Illumination ownership of learning semantics and state.
 - **Orientation** is independently useful as a Discover / Explore / Navigate product and already distinguishes its full standalone browser application from its deliberately narrow reusable Embed Host for generic map composition.
 
-WGT service-local ADR-0009 currently establishes WGT-native executable presentation as the default and states that WGT is not normally a container for foreign application UIs. That decision was sound for the first narrow integration slices but does not yet address full-service capability parity without duplicate UI implementations.
+WGT service-local ADR-0009 currently establishes WGT-native executable presentation as the default and states that WGT is not normally a container for foreign application UIs. That decision was sound for the first narrow integration slices but does not address full-service capability parity without duplicate UI implementations.
 
-The product requirement driving this proposal is concrete:
+The product requirement is:
 
 > A supported WGT client should expose the real useful product capability of an integrated service rather than an intentionally reduced WGT-specific or mobile-specific subset, while preserving bounded-context ownership.
 
 Platform-specific composition and effects may differ. Business capability must not be arbitrarily removed merely because a service is accessed through WGT or from a smaller device.
 
-## Decision proposal
+## Decision
 
 ### 1. Distinguish WGT-owned composition from provider-owned product presentation
 
@@ -43,7 +43,7 @@ A Product Surface does not transfer domain ownership to WGT and does not allow W
 
 ### 2. WGT-native presentation remains valid and important
 
-This proposal does not replace WGT-native presentation with WebViews or provider UI everywhere.
+This decision does not replace WGT-native presentation with WebViews or provider UI everywhere.
 
 Use WGT-native presentation when:
 
@@ -121,15 +121,31 @@ Orientation is the current concrete example:
 
 Embedding the full provider product must not cause foreign contexts to depend on that full UI when a narrower generic contract already exists.
 
+## Acceptance evidence
+
+The first implementation evidence exists on the isolated post-v0.6 WGT Atlas stack:
+
+- WGT keeps Atlas semantics, service/capability/dependency projection and transitions WGT-owned;
+- Vocation remains a separately owned provider/runtime;
+- the Vocation service node can open the existing provider-owned React/FastAPI product through a Windows WGT `NativeWebView` host;
+- the host is provider-specific and accepts only loopback HTTP(S), so no universal plugin mechanism has been introduced;
+- existing narrow Vocation Published Contracts remain separate and continue to support WGT-owned composed surfaces;
+- the real `vocation.map_projection` -> Orientation relationship remains an explicit WGT composition dependency rather than being inferred from UI artwork;
+- Illumination and Orientation can appear as known first-class WGT services without inventing capabilities before their provider-owned WGT boundaries exist.
+
+The exact WGT evidence head `356245f6e126e08fc4fad28a5da3c1660e551a7a` passed repository CI run #131 (`32082551762`): restore, build including Avalonia/XAML compilation, all tests, and transitive package vulnerability audit.
+
+This evidence is sufficient to accept the architectural distinction. It is not evidence that a generic Product Surface host contract exists, nor does it establish iPhone runtime support.
+
 ## Consequences
 
 - WGT may remain visually coherent without duplicating every rich provider workflow.
-- Provider UI ownership becomes possible without transferring provider domain authority.
+- Provider UI ownership is possible without transferring provider domain authority.
 - WGT-native composition remains the default for genuinely WGT-owned cross-service experiences.
 - Existing narrow Published Contracts remain valid and do not automatically become full-product APIs.
 - Provider-specific presentation hosting may differ by technology.
 - A reusable common host contract is deferred until concrete integrations demonstrate stable common semantics.
-- WGT service-local ADR-0009 requires follow-up alignment if this system ADR is accepted; its earlier blanket wording against foreign application UI would become too strong.
+- WGT service-local ADR-0009 requires follow-up alignment; its earlier blanket wording against foreign application UI is superseded by this decision for justified provider-owned Product Surfaces.
 - Vocation, Illumination and Orientation may require their own service-local presentation/runtime decisions to satisfy this model.
 - iPhone parity remains a required product direction but cannot be claimed until provider runtime topology and real Apple-device validation exist.
 
@@ -151,8 +167,9 @@ Rejected as speculative. We do not yet have enough repeated integrations to know
 
 Rejected. WGT still owns Atlas, composition, device/platform integration, availability and coherent transitions. Product Surfaces operate inside explicit WGT hosting, not as unrelated external applications.
 
-## Adoption gate
+## Follow-up
 
-This ADR remains **Proposed** until the Architecture Control Plane reviews the concrete WGT Atlas/product-hosting design and decides whether the distinction between WGT composition and provider-owned Product Surfaces should become system policy.
-
-No service implementation should claim a new generic Product Surface/Service Host contract solely because this proposal exists.
+- align WGT service-local ADR-0009 with this system decision on the post-v0.6 Atlas lineage;
+- define concrete provider-owned WGT presentation/runtime boundaries in Illumination and Orientation before marking those services composed;
+- observe those integrations before proposing any reusable generic Product Surface/Service Host contract;
+- preserve real-device Apple validation as a separate platform gate.
