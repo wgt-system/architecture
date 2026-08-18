@@ -26,6 +26,9 @@ These are binding system-level integration policies for accepted and future `wgt
 18. **Orientation owns generic geospatial capability.** Consumers adapt provider-owned data into generic spatial scenes/results; Orientation does not acquire foreign business semantics or authoritative persistence.
 19. **Provider/WGT composition is explicit.** A provider may call Orientation and interpret the result; WGT may compose provider-owned data with Orientation for presentation. Rich spatial projections and external resources are permitted when the provider remains authoritative for their meaning.
 20. **Bounded context, repository, runtime artifact, and network service are distinct.** Orientation may contain Java/Maven, TypeScript/MapLibre, and external Valhalla integration without requiring separate repositories, microservices, or a remote Orientation service.
+21. **Rich provider-owned Product Surfaces are a valid WGT integration shape when justified by a concrete service.** WGT may host a provider-owned native or browser presentation without acquiring the provider's business semantics; WGT still owns Atlas/navigation, device/platform hosting, failure isolation and genuine WGT-level composition. See ADR-0005.
+22. **A Product Surface does not replace narrower reusable contracts.** A service may be a first-class product in WGT while also exposing generic or bounded capabilities to other contexts. Consumers must continue to use the narrowest accepted boundary that fits their scenario.
+23. **Do not generalize provider presentation into a universal plugin/UI protocol prematurely.** Concrete provider-specific hosts may legitimately use different technologies. A common Product Surface/Presentation Contribution/Service Host contract requires repeated implementation evidence and a separate Architecture Control Plane decision.
 
 ## Design-time Service Catalog vs runtime Service Registry
 
