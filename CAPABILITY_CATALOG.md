@@ -8,21 +8,39 @@ This catalog answers a system-design question before implementation begins:
 
 A capability being useful to several applications does **not** automatically make it part of Wiiii Got This or justify a new bounded context. Generic infrastructure may belong to another accepted context; repeated mechanics may remain local or become shared libraries without transferring domain ownership.
 
+Product role is separate from capability ownership. A bounded context can be a first-class product, a shared capability provider, or both. Proposed ADR-0007 records that distinction for WGT product composition.
+
 ## Accepted capabilities
 
 | Capability | Kind | Owner | Status / boundary |
 | --- | --- | --- | --- |
-| Cross-platform service/capability integration and presentation | Integration/platform | Wiiii Got This | Accepted. WGT owns device/platform suitability, availability interpretation, integration configuration, navigation/invocation, and WGT-native presentation without taking foreign business ownership. |
+| Cross-platform service/capability integration and presentation | Integration/platform | Wiiii Got This | Accepted. WGT owns device/platform suitability, availability interpretation, integration configuration, navigation/invocation, Atlas/product composition, and WGT-native presentation without taking foreign business ownership. |
 | WGT-level service identity, registration/discovery, and capability availability | Integration/platform | Wiiii Got This | Accepted within the WGT bounded context. This is **not** a universal runtime Service Registry product. |
-| Generic durable opaque cross-device delivery | Generic infrastructure | Conveyance | Accepted owner. Use only when durable cross-device delivery semantics are actually required. |
-| Current Object delivery | Generic infrastructure | Conveyance | Accepted and implemented baseline: one current Envelope per Channel with atomic compare-and-swap and no product-visible history. |
-| Job-market research/import/publication semantics | Domain capability | Vocation | Vocation owns prompt/research bundle meaning, job-market state and publication versioning. Current accepted published contracts include Published Opportunity Overview 1.0 and Published Map Projection 1.0. |
-| Learning content/import/review/scheduling semantics | Domain capability | Illumination | Illumination owns learning-content generation/import semantics, Learning Items, review/assessment, repetition scheduling and learning-state transitions. |
-| Personal spatial research, exploration and mobility | Domain capability | Orientation | Orientation is independently authoritative for its own personal spatial-research/discovery state and mobility workflows. This is distinct from foreign provider-domain semantics. |
-| Generic geospatial capability (discover, explore, navigate, current location) | Generic capability | Orientation | Accepted owner for generic spatial scenes/features, map rendering, provider integration, geocoding, routing and current-location representation. Future transit/shared-mobility/multimodal semantics remain Orientation-owned when explicitly accepted. |
+| Generic durable opaque cross-device delivery | Generic infrastructure | Conveyance | Accepted owner. Conveyance is a Shared Infrastructure Capability Provider, not a peer end-user product. Reuse it when durable asynchronous cross-device delivery is actually required. Product use may be enabled/disabled independently where an accepted product policy exposes that choice. |
+| Current Object delivery | Generic infrastructure | Conveyance | Accepted and implemented baseline: one current Envelope per Channel with atomic compare-and-swap and no product-visible history. Production cross-device use requires a durable network-reachable relay/runtime plus accepted security/trust integration. |
+| Job-market research/import/publication semantics | Domain capability | Vocation | Vocation owns prompt/research bundle meaning, job-market state and publication versioning. Current accepted published contracts include Published Opportunity Overview 1.0 and Published Map Projection 1.0. These narrow integration contracts do **not** make `Opportunity Overview` or `vocation.map_projection` first-level Atlas capability destinations. Vocation remains a First-class Product Provider. |
+| Learning content/import/review/scheduling semantics | Domain capability | Illumination | Illumination owns learning-content generation/import semantics, Learning Items, review/assessment, repetition scheduling and learning-state transitions. Illumination is a First-class Product Provider. |
+| Personal spatial research, exploration and mobility | Domain capability | Orientation | Orientation is independently authoritative for its own personal spatial-research/discovery state and mobility workflows. Orientation is a First-class Product Provider. |
+| Generic geospatial capability (discover, explore, navigate, current location) | Generic capability | Orientation | Accepted owner for generic spatial scenes/features, map rendering, provider integration, geocoding, routing and current-location representation. Orientation is therefore also a Generic Capability Provider. Vocation may consume this generic capability while retaining ownership of job/work-location meaning; Vocation's Published Map Projection remains a Vocation data projection rather than generic map ownership. |
 | Domain-specific prompt generation and structured import semantics | Domain capability | Bounded context owning the resulting data | Prompt wording, requested fields, versioned schema, validation, provenance and import translation stay with Vocation, Illumination, Orientation or another owning context. Similar prompt/JSON mechanics do not imply a shared bounded context. |
 | Domain-specific merge, conflict, authority, and reconciliation semantics | Domain capability | Bounded context owning the affected domain | Never transferred to WGT or Conveyance merely because transport is shared. |
 | Personal device/platform integration and presentation semantics | Integration/platform | Wiiii Got This | WGT-owned; transport/server control must not silently become business-domain authority. |
+
+## Product role and visibility guidance
+
+Capability ownership and Atlas visibility are not the same thing.
+
+- A provider-local capability may remain a narrow Published/Application Contract without becoming a global first-level destination.
+- `Opportunity Overview` is currently such a Vocation integration/workflow projection: useful to integration code, but not a separate global product/capability destination now that Vocation is composed as a complete first-class product.
+- Generic geospatial behavior remains Orientation-owned even when Vocation publishes a Vocation-specific map projection or consumes Orientation for map rendering/exploration.
+- A shared capability provider may be visible contextually as common infrastructure connected to its actual consumers.
+- A consuming product may project a local facility/attachment for a shared capability. For example, Vocation using Conveyance may render as a Vocation-local relay/depot/factory connected to shared delivery infrastructure.
+- Turning one product's optional capability consumption off may remove/deactivate that local facility without changing the provider's ownership or another product's use.
+- Repository/process/microservice topology does not determine the end-user product hierarchy.
+- WGT may progressively disclose capabilities at closer zoom/focus while keeping first-class Product Providers as the primary navigable product areas.
+- Visual metaphors such as data/power networks, rail, roads, waterways or air routes are presentation choices over explicit ownership/consumption relationships; they are not architectural ownership rules.
+
+This is presentation guidance only; architecture ownership remains authoritative.
 
 ## Prompt / external-research decision guidance
 
@@ -54,6 +72,8 @@ A concrete cross-context operational problem appears, such as:
 
 That would require an explicit System Architecture decision. It still would not own Vocation/Illumination/Orientation result contracts.
 
+If accepted later, such an execution provider would normally be a shared/specialist Capability Provider unless it independently grows a substantial end-user product workflow. It must not become a first-class Atlas product merely because it is a separate microservice.
+
 ## Conveyance decision guidance
 
 ### Use Conveyance when
@@ -63,6 +83,28 @@ That would require an explicit System Architecture decision. It still would not 
 - the business payload can remain opaque to the server;
 - the owning domain defines the payload and authority semantics;
 - an accepted Conveyance delivery mode satisfies the required generic delivery behavior.
+
+When all three first-class products eventually require this behavior, the intended architecture is to reuse Conveyance as shared generic delivery infrastructure rather than create Vocation-, Illumination-, and Orientation-specific relay stacks.
+
+That does not imply identical domain synchronization semantics or identical payloads.
+
+### Current product dispositions
+
+- **Vocation:** current concrete proof uses WGT plus Conveyance for protected asynchronous cross-device delivery of a Vocation publication. Atlas may expose this relationship as product-scoped and user-configurable; enabled by default does not imply that an alternative delivery implementation already exists.
+- **Illumination:** likely consumer when cross-device learning state is accepted, but Illumination must first define its own publication/replication and merge/reconciliation semantics.
+- **Orientation:** ordinary map/routing/geocoding work does not require Conveyance; persistent Orientation-owned personal state may use it when asynchronous cross-device delivery is required and an accepted delivery mode fits.
+
+### Server/relay consequence
+
+If a producing device may be offline while another device retrieves data, local-only peer-to-peer invocation cannot satisfy the requirement by itself. Production Conveyance therefore needs a durable network-reachable relay/runtime (or equivalent accepted remote deployment).
+
+That relay:
+
+- stores/transports opaque protected envelopes;
+- may carry independent channels for multiple product domains;
+- does not become authoritative for Vocation, Illumination, or Orientation business data;
+- does not create a shared domain database;
+- does not define merge/conflict/reconciliation semantics.
 
 ### Do not automatically use Conveyance when
 
@@ -90,7 +132,8 @@ This rule prevents the system from accumulating one synchronization stack per bo
 | Capability | Status | Guidance |
 | --- | --- | --- |
 | Universal runtime Service Registry | Unresolved | WGT currently owns its own registration/discovery semantics. Do not create Consul/Kubernetes-style runtime registry requirements from this design-time catalog. |
-| Generic LLM/research execution gateway | Not accepted | Domain prompt/import semantics remain with their owners. Raise a system decision only when a concrete shared execution/credential/queue/research-tooling requirement exists. |
+| Generic LLM/research execution gateway | Not accepted | Domain prompt/import semantics remain with their owners. Raise a system decision only when a concrete shared execution/credential/queue/research-tooling requirement exists. If later accepted, classify its product role separately from its process/repository topology. |
+| Shared document/PDF/OCR processing provider | Not accepted as a system bounded context | Keep specialist implementation provider-local/library/sidecar unless concrete cross-context reuse, isolation, lifecycle, security, or deployment requirements justify a shared capability owner. |
 | Ordered/change-stream delivery | Not accepted as a current Conveyance mode | If a concrete domain requires it, raise a system architecture decision before implementing generic transport. |
 | Generic bidirectional synchronization semantics | Not accepted | Domain change/merge/reconciliation semantics cannot be genericized by default. Define domain semantics first, then evaluate transport. |
 
