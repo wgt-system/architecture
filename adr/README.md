@@ -38,3 +38,4 @@ Current records:
 - [ADR-0004 — Orientation Product Autonomy and Domain-Owned Prompt/Import Semantics](0004-orientation-product-autonomy-and-prompt-ownership.md)
 - [ADR-0005 — Provider-Owned Product Surfaces in Wiiii Got This](0005-wgt-provider-owned-product-surfaces.md)
 - [ADR-0006 — Cross-Platform Product Surface, Runtime, and Packaging Policy](0006-cross-platform-product-runtime-packaging-policy.md) *(Proposed)*
+- [ADR-0007 — Product Roles, Shared Capability Providers, and WGT Atlas Projection](0007-product-role-capability-provider-and-atlas-projection.md) *(Proposed)*
