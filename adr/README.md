@@ -30,9 +30,11 @@ Each ADR should state:
 - consequences;
 - rejected alternatives when they materially clarify the boundary.
 
-Initial records:
+Current records:
 
 - [ADR-0001 — System Architecture Repository](0001-system-architecture-repository.md)
 - [ADR-0002 — Cross-Context Integration and Capability Ownership](0002-cross-context-integration-and-capability-ownership.md)
 - [ADR-0003 — Orientation Geospatial Capability Ownership](0003-orientation-geospatial-capability-ownership.md)
 - [ADR-0004 — Orientation Product Autonomy and Domain-Owned Prompt/Import Semantics](0004-orientation-product-autonomy-and-prompt-ownership.md)
+- [ADR-0005 — Provider-Owned Product Surfaces in Wiiii Got This](0005-wgt-provider-owned-product-surfaces.md)
+- [ADR-0006 — Cross-Platform Product Surface, Runtime, and Packaging Policy](0006-cross-platform-product-runtime-packaging-policy.md) *(Proposed)*
