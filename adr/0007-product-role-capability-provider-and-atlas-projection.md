@@ -70,9 +70,17 @@ Consumers of a generic capability must not depend on the provider's full Product
 
 A provider may publish application or integration capabilities without each capability becoming a first-level Atlas destination.
 
-For example, Vocation currently exposes narrow integration capabilities such as Opportunity Overview and Map Projection. These remain valid provider-owned integration boundaries. They do not imply that the user should experience Vocation as a collection of peer global capability nodes instead of as a coherent product.
+For example, Vocation currently exposes narrow integration contracts named Opportunity Overview and Map Projection. These remain valid Vocation-owned integration boundaries where current WGT integration code requires them. They do **not** imply that the user should experience Vocation as a collection of peer global capability nodes instead of as a coherent product.
 
-The product may present those semantics as local features, districts, landmarks, tools, or progressively disclosed detail according to WGT-owned presentation design.
+In particular:
+
+- **Opportunity Overview** is a Vocation product workflow/integration projection, not a generic system capability that needs a first-level Atlas destination.
+- **Vocation Published Map Projection** is a Vocation-owned projection of Vocation domain information for an integration consumer. It does not transfer ownership of generic mapping/geospatial behavior to Vocation.
+- the **generic geospatial/map/routing capability remains Orientation-owned** under ADR-0003. When Vocation needs generic map rendering/exploration, Atlas should describe Vocation as a consumer of an Orientation-owned capability while preserving Vocation ownership of job/work-location meaning.
+
+This means an integration contract may continue to exist and be exercised by code even when the Atlas deliberately does not project it as a user-facing capability object.
+
+The product may present provider-local semantics as local features, districts, landmarks, tools, or progressively disclosed detail according to WGT-owned presentation design.
 
 The architecture remains authoritative for ownership and relationships; WGT owns the user-facing spatial projection.
 
@@ -102,9 +110,15 @@ The semantic projection should follow these rules:
 - Shared Capability Providers appear in relation to the products/capabilities that actually consume them, not automatically as equal first-level product destinations;
 - provider-local capabilities may appear only at closer zoom/focus when that improves comprehension;
 - shared capabilities may appear as common infrastructure connected to several consuming products;
+- a consuming product may project a **local facility/attachment** for a shared capability when that makes the relationship understandable without exposing deployment topology;
+- enabling/disabling a shared capability for one product may therefore add/remove/deactivate that product-local facility without changing unrelated consumers;
 - actual runtime/microservice topology remains available through diagnostics/technical views when useful, but it is not the default end-user world model.
 
-A presentation theme may render these semantics with settlements, districts, facilities, transport infrastructure, machinery, abstract nodes, or another WGT-owned visual language. The metaphor must not change the underlying ownership/relationship semantics.
+For example, if Vocation uses Conveyance, a World renderer may show a Vocation-local relay/depot/factory/data-terminal and a connection into a shared delivery network. That does not mean Conveyance is physically inside Vocation, that Vocation owns Conveyance, or that there must be one Conveyance process per product.
+
+Likewise, a Vocation-to-Orientation generic geospatial dependency may be rendered as a map/geospatial network, route, facility or another spatial metaphor without changing the explicit ownership relationship.
+
+A presentation theme may render accepted relationships with settlements, districts, facilities, roads, rail, waterways, air routes, utility/data networks, machinery, abstract nodes, or another WGT-owned visual language. The metaphor must not change the underlying ownership/relationship semantics.
 
 ### 5. Conveyance is shared delivery infrastructure, not a peer product
 
@@ -115,6 +129,16 @@ For asynchronous cross-device operation where the producing device may be offlin
 The client/product side remains responsible for the accepted protection and domain boundary. Conveyance stores/transports opaque protected envelopes.
 
 One Conveyance deployment may carry independent channels for multiple WGT product domains without those domains sharing a database or surrendering authority.
+
+#### Product-local use and enablement
+
+Conveyance use is a relationship between a consuming product/context and the shared delivery capability; it is not synonymous with globally enabling a peer WGT product.
+
+Where product policy supports it, WGT may expose Conveyance use as a per-product/context option. For example, a user may allow Vocation to use Conveyance while disabling that relationship for another product, or may disable Conveyance-backed delivery for Vocation if they prefer a different accepted delivery mechanism later.
+
+The exact enablement/alternative-delivery semantics must be implemented by explicit accepted configuration; Atlas must not invent an alternative transport merely because the visual control exists.
+
+The visual consequence may be product-local: a World projection can add, power down or remove the consuming product's local Conveyance facility/network attachment while the shared remote relay remains one generic infrastructure deployment.
 
 ### 6. Current cross-device disposition for the three first-class products
 
@@ -183,9 +207,11 @@ When grouping is eventually accepted, the group is an Atlas/product-navigation c
 
 - Vocation, Illumination, and Orientation remain primary WGT product destinations.
 - Conveyance remains an independent bounded context but is no longer conceptually equivalent to those products in the user-facing product hierarchy.
-- Orientation can remain both a full product and the generic geospatial capability owner.
+- Orientation remains both a full product and the generic geospatial capability owner; Vocation's map integration projection does not change that ownership.
+- Opportunity Overview remains usable as a Vocation integration contract without becoming a global Atlas capability destination.
 - WGT Atlas can scale through progressive spatial disclosure without mirroring every service/process as a peer node.
-- the Atlas should tolerate a low-teens number of direct product regions before semantic grouping is required;
+- shared infrastructure may be represented by product-local facilities/attachments plus a shared backbone when that improves comprehension.
+- the Atlas should tolerate a low-teens number of direct product regions before semantic grouping is required.
 - future shared infrastructure can be visible where useful without forcing users to understand microservice topology.
 - cross-device product requirements converge on the accepted generic Conveyance owner while keeping domain-specific synchronization semantics with each product.
 - a production cross-device Conveyance deployment requires a durable network-reachable relay; local-only loopback execution cannot satisfy asynchronous device delivery by itself.
@@ -196,6 +222,10 @@ When grouping is eventually accepted, the group is an Atlas/product-navigation c
 ### Treat every bounded context/repository as an equal first-class WGT product
 
 Rejected because service topology and product topology are different concerns. This makes infrastructure such as Conveyance look like a peer end-user application and scales poorly as specialist services appear.
+
+### Mirror every published integration contract as a global Atlas capability
+
+Rejected. Integration/publication boundaries exist for code and ownership reasons; they are not automatically stable user-facing product concepts. This would incorrectly elevate Vocation Opportunity Overview / Map Projection and would make the Atlas track API shape rather than product meaning.
 
 ### Hide every shared capability provider completely
 
