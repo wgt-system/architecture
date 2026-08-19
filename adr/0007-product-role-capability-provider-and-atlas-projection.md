@@ -164,12 +164,28 @@ Before a new system-facing service is treated as durable architecture, record:
 
 The role can evolve when real product scope changes, but the change must be explicit.
 
+### 9. Keep direct product regions viable before introducing grouping
+
+Do not introduce Atlas group/category hubs merely because the number of directly composed products stops fitting an early four-node layout.
+
+The first-level Atlas layout, search, focus and level-of-detail model should remain usable with a **single-digit to low-teens** number of direct First-class Product Providers. A concrete future system may reasonably have roughly eight, twelve, fifteen, or another comparable number of direct product regions before grouping adds more value than it costs. This is a design target, not a fixed numeric threshold.
+
+Grouping is justified only when a stable user-facing semantic cluster improves comprehension or navigation. It must not be created solely because:
+
+- a repository count crossed an arbitrary number;
+- the current renderer is too rigid;
+- several services happen to share implementation technology;
+- a deployment or team boundary suggests a category.
+
+When grouping is eventually accepted, the group is an Atlas/product-navigation concept unless a separate architecture decision gives it stronger ownership semantics. Zoom/LOD may allow a distant group or product region to collapse visually and reveal subregions at closer scale without changing bounded-context authority.
+
 ## Consequences
 
 - Vocation, Illumination, and Orientation remain primary WGT product destinations.
 - Conveyance remains an independent bounded context but is no longer conceptually equivalent to those products in the user-facing product hierarchy.
 - Orientation can remain both a full product and the generic geospatial capability owner.
 - WGT Atlas can scale through progressive spatial disclosure without mirroring every service/process as a peer node.
+- the Atlas should tolerate a low-teens number of direct product regions before semantic grouping is required;
 - future shared infrastructure can be visible where useful without forcing users to understand microservice topology.
 - cross-device product requirements converge on the accepted generic Conveyance owner while keeping domain-specific synchronization semantics with each product.
 - a production cross-device Conveyance deployment requires a durable network-reachable relay; local-only loopback execution cannot satisfy asynchronous device delivery by itself.
@@ -184,6 +200,10 @@ Rejected because service topology and product topology are different concerns. T
 ### Hide every shared capability provider completely
 
 Rejected. Important shared dependencies should remain explainable, discoverable, and diagnosable. The rule is progressive/contextual representation, not invisibility.
+
+### Group products as soon as the first-level Atlas becomes moderately populated
+
+Rejected. An arbitrary count-based hierarchy would force users through categories before the product landscape actually needs them and would make renderer limitations look like architecture. Direct product regions should remain viable into the low teens; grouping requires semantic value.
 
 ### Make WGT or Conveyance own generic synchronization semantics for every domain
 
